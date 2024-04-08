@@ -1,6 +1,5 @@
-import { Keyboard } from "../models/teclados.models";
-
-
+import { Keyboard } from "../interfaces/Keyboard";
+import KeyboardModel from "../models/teclados.models";
 
 let Keyboards: Keyboard[] = [{
     color:"Carbon",
@@ -32,15 +31,21 @@ let Keyboards: Keyboard[] = [{
 }]
 
 export const getKeyBoards=async()=>{
-    return Keyboards;
+    try{
+        const response=await KeyboardModel.find();
+        return response;
+    }
+    catch(error){  
+        console.log(error);
+    }
 }
-export const getKeyBoard=async(brand:string)=>{
-    return Keyboards.
-    filter(keyboard=>keyboard.brand===brand);
+export const getKeyBoard=async(id:string)=>{
+    const response=await KeyboardModel.findOne({_id:id});
+        return response;
 }
 export const createKeyboard=async(keyboard:Keyboard)=>{
-    Keyboards.push(keyboard);
-    return keyboard;
+    const responseInsert=await KeyboardModel.create(keyboard);
+    return responseInsert;
 }
 export const deleteKeyboard=async(brand:string)=>{
     Keyboards=Keyboards.
