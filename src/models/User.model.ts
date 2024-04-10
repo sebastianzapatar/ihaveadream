@@ -12,6 +12,11 @@ const UserSchema = new Schema<User>({
         type:String,
         required:true,
         unique:true
+    },
+    password:{
+        type:String,
+        required:true,
+        minlength:8
     }
 })
 const UserModel = model('User',UserSchema);

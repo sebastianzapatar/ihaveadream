@@ -11,5 +11,6 @@ export const registerUser=async(authUser:User)=>{
     const passwordHash=await encrypt(password);
     console.log(passwordHash);
     const newUser=await UserModel.create({email,password:passwordHash,name,description});
+    console.log(newUser);
     return newUser;
 }
