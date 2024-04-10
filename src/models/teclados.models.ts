@@ -1,4 +1,4 @@
-import { model,models,Schema } from "mongoose"
+import { model,Schema } from "mongoose"
 import { Keyboard } from "../interfaces/Keyboard"
 const KeyboardScheme=new Schema<Keyboard>({
     color:{
