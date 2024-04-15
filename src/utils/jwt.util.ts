@@ -8,7 +8,11 @@ export const signToken=async (id:string)=>{
     return jwt;
 }
 
-export const verifyToken=async (token:string)=>{
-    const isOk=verify(token,JWT_SECRET);
-    return isOk;
+export const verifyToken= (token:string)=>{
+    
+    
+        const isOk=verify(token,JWT_SECRET);
+        return isOk;
+    
+    
 }
